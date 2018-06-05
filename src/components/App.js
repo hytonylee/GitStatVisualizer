@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import User from "./User";
+import Link from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Route path="user/:username" component={User} />
-        </div>
-      </Router>
+      <div className="main-app">
+        <header className="main-header">
+          <h1>
+            <Link to="/" />GitHub Public Repo Visualizer
+          </h1>
+        </header>
+        <main className="main-content">{this.props.children}</main>
+      </div>
     );
   }
 }
