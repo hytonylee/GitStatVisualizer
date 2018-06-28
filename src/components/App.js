@@ -1,12 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 
+import Results from './Results';
 
-function FormResults(props) {
-  return (
-    <h2>Search results:</h2>
-  )
-}
+
+// function FormResults(props) {
+//   return (
+//     <h2>Search results:</h2>
+//   )
+// }
 
 export class App extends React.Component {
   
@@ -65,7 +67,7 @@ export class App extends React.Component {
           </label>
           <input type='submit' value='Submit'/>
         </form>
-        <FormResults/>
+        <Results />
         {response}
         {this.state.list.map(function (repo) {
             return (
