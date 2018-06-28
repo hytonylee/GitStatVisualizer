@@ -2,13 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import Results from './Results';
-
-
-// function FormResults(props) {
-//   return (
-//     <h2>Search results:</h2>
-//   )
-// }
+import Search from './Search';
 
 export class App extends React.Component {
   
@@ -19,13 +13,17 @@ export class App extends React.Component {
       value: '',
       result: false
     }
-    this.handleChange = this.handleChange.bind(this)
+    // this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   
-  handleChange (event) {
-    this.setState({value: event.target.value})
+  handleSearch = (term) => {
+    this.setState(() => ({ value: term}))
   }
+
+  // handleChange (event) {
+  //   this.setState({value: event.target.value})
+  // }
 
   handleSubmit (event) {
     event.preventDefault()
@@ -60,13 +58,10 @@ export class App extends React.Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input type='text' ref='term' onChange={this.handleChange}/>
-          </label>
-          <input type='submit' value='Submit'/>
-        </form>
+        
+        <Search 
+          handleSearch={this.handleSearch}
+        />
         <Results />
         {response}
         {this.state.list.map(function (repo) {

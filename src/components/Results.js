@@ -1,6 +1,6 @@
 import React from 'react';
 
-const  Results = (props) =>  (
+const  Results = () =>  (
       <h2>Search results:</h2>
     );
   
