@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 
 export default class Search extends React.Component {
@@ -14,12 +15,11 @@ export default class Search extends React.Component {
             e.target.elements.terms.value = '';
         }
     }
-
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSearch}>
-                    <input type='text' name="terms"/>
+                    <input type='text' name="terms" onChange={this.handleSubmit}/>
                     <button>Submit</button>
                 </form>
             </div>

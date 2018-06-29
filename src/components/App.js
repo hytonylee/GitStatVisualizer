@@ -13,24 +13,14 @@ export class App extends React.Component {
       value: '',
       result: false
     }
-    // this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
   
   handleSearch = (term) => {
     this.setState(() => ({ value: term}))
-  }
-
-  // handleChange (event) {
-  //   this.setState({value: event.target.value})
-  // }
-
-  handleSubmit (event) {
-    event.preventDefault()
-    var username = this.state.value
-    var _this = this
-    this.serverRequest =
-      axios
+    const username = term
+    const _this = this
+    this.serverRequest = 
+    axios
         .get('https://api.github.com/users/' + username + '/repos')
         .then(function (result) {
           _this.setState({
@@ -46,6 +36,8 @@ export class App extends React.Component {
         });
     return
   }
+
+ 
 
   render () {
     const hasResult = this.state.result;
